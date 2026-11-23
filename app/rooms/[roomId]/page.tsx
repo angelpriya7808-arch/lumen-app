@@ -179,7 +179,7 @@ export default function RoomPage() {
       await handleSignal(payload, me);
     });
 
-    channel.on('presence', { sync: () => {
+    channel.on('presence', { event: 'sync' }, () => {
       const state = channel.presenceState();
       const others = Object.keys(state).filter((id) => id !== me);
       for (const otherId of others) {
@@ -187,7 +187,7 @@ export default function RoomPage() {
           createPeer(otherId, me, true);
         }
       }
-    }});
+    });
 
     channel.subscribe(async (status) => {
       if (status === 'SUBSCRIBED') {
@@ -352,4 +352,4 @@ export default function RoomPage() {
       )}
     </main>
   );
-      }
+        }
