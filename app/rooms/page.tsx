@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { createClient } from '../../../lib/supabaseClient';
+import { createClient } from '../../lib/supabaseClient';
 
 type Participant = { user_id: string; username: string; role: 'leader' | 'speaker' };
 type PendingRequest = { id: string; user_id: string; username: string };
