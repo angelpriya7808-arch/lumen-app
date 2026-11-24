@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { createClient } from '../../lib/supabaseClient';
+import BottomNav from '../../components/BottomNav';
 
 type ThreadRow = {
   conversation_id: string;
@@ -131,6 +132,7 @@ export default function MessagesListPage() {
           </div>
         </Link>
       ))}
+      <BottomNav />
     </main>
   );
 }
