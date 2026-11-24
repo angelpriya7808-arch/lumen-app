@@ -1,4 +1,5 @@
 import './design-system.css';
+import BackgroundLayer from '../components/BackgroundLayer';
 
 export const metadata = {
   title: 'Lumen',
@@ -15,7 +16,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <BackgroundLayer />
+        <div className="app-content">{children}</div>
+      </body>
     </html>
   );
 }
