@@ -20,6 +20,76 @@ body {
   background: radial-gradient(1200px 800px at 50% -10%, #142038 0%, var(--void) 55%, var(--void-2) 100%);
   color: var(--ink);
   font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
+
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: center/cover no-repeat var(--bgimg, none);
+  animation: bg-drift 30s ease-in-out infinite alternate;
+}
+.bg-layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(9,13,20,0.2), rgba(9,13,20,0.15) 55%, rgba(9,13,20,0.65));
+}
+@keyframes bg-drift {
+  to { transform: scale(1.08) translate(-1.5%, 1%); }
+}
+.app-content { position: relative; z-index: 1; }
+
+#bottom-nav {
+  position: fixed;
+  z-index: 20;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  gap: 4px;
+  padding: 7px;
+  border-radius: 999px;
+}
+.nav-btn {
+  width: 48px;
+  height: 46px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--ink);
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), background 0.25s;
+}
+.nav-btn.active {
+  opacity: 1;
+  background: var(--glass-strong);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.5), 0 0 16px rgba(111,227,255,0.4);
+  transform: translateY(-3px) scale(1.08);
+}
+.nav-btn.create {
+  background: linear-gradient(135deg, var(--aurora-a), var(--aurora-b));
+  opacity: 1;
+  color: #0a0f1a;
+}
+.nav-avatar {
+  width: 30px; height: 30px; border-radius: 50%;
+  background-size: cover; background-position: center;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.5);
+}
+
+.pill-gradient {
+  background: linear-gradient(135deg, #ff7ad0, #7a8cff);
+  color: #fff;
+  border: none;
+  font-weight: 700;
 }
 
 h1, h2, .brand {
@@ -113,4 +183,4 @@ h1, h2, .brand {
 }
 .story-ring.seen {
   background: var(--glass-edge);
-}
+  }
