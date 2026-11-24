@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { createClient } from '../../lib/supabaseClient';
+import BottomNav from '../../components/BottomNav';
 
 type Room = {
   id: string;
@@ -78,6 +79,7 @@ export default function RoomsPage() {
           </span>
         </Link>
       ))}
+      <BottomNav />
     </main>
   );
-}
+                  }
