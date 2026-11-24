@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { createClient } from '../../lib/supabaseClient';
 import ReelCard, { Reel } from '../../components/ReelCard';
+import BottomNav from '../../components/BottomNav';
 
 export default function ReelsPage() {
   const supabase = createClient();
@@ -92,6 +93,7 @@ export default function ReelsPage() {
         </p>
       )}
       {userId && reels.map((r) => <ReelCard key={r.id} reel={r} currentUserId={userId} />)}
+      <BottomNav />
     </main>
   );
-}
+          }
