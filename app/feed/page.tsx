@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { createClient } from '../../lib/supabaseClient';
 import PostCard, { Post } from '../../components/PostCard';
 import StoryBar from '../../components/StoryBar';
+import BottomNav from '../../components/BottomNav';
 
 export default function FeedPage() {
   const supabase = createClient();
@@ -95,6 +96,7 @@ export default function FeedPage() {
 
       {userId &&
         posts.map((post) => <PostCard key={post.id} post={post} currentUserId={userId} />)}
+      <BottomNav />
     </main>
   );
-      }
+}
